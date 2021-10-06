@@ -1,0 +1,97 @@
+/*------- Currency Table Form --------- */
+@media only screen and  (max-width: 576px) {
+    .tableAmountInput, .tableBaseInput {
+        width: 100%;
+    }
+    .currencyLabel {
+        font-size:smaller;
+        font-weight: 500;
+    }
+    .amountLabel {
+        font-size:smaller;
+        font-weight: 500;
+    }
+}
+@media only screen and  (min-width: 576px) {
+    .tableAmountInput, .tableBaseInput {
+        width: 155px;
+    }
+    .formTag {
+        position: relative;
+        right: 40px;
+    }
+    .currencyLabel {
+        font-size:small;
+        font-weight: 500;
+    }
+    .amountLabel {
+        font-size:small;
+        font-weight: 500;
+    }
+}
+@media only screen and  (min-width: 768px) {
+    .tableAmountInput, .tableBaseInput {
+        width: 200px;
+    }
+    .formTag {
+        position: relative;
+        right: 43px;
+    }
+    .currencyLabel {
+        font-size:medium;
+        font-weight: 500;
+    }
+    .amountLabel {
+        font-size: medium;
+        font-weight: 500;
+    }
+}
+@media only screen and  (min-width: 992px) {
+    .tableAmountInput, .tableBaseInput {
+        width: 220px;
+    }
+    .formTag {
+        position: relative;
+        right: 30px;
+    }
+    .currencyLabel {
+        font-size: medium;
+        font-weight: 500;
+    }
+    .amountLabel {
+        font-size: medium;
+        font-weight: 500;
+    }
+}
+
+@media only screen and  (min-width: 1200px) {
+    .tableAmountInput, .tableBaseInput {
+        width: 240px;
+    }
+    .formTag {
+        position: relative;
+        right: 40px;
+    }
+    .currencyLabel {
+        font-size: medium;
+        font-weight: 500;
+    }
+    .amountLabel {
+        font-size: medium;
+        font-weight: 500;
+    }
+}
+.verDiv {
+    border-left: 1px solid lightslategray;
+}
+
+/*------- Currency Table ------ */
+.horDiv {
+    border: none;
+}
+.tableHeadRow .rightCol, .tableBodyRow .rightCol {
+    text-align: right;
+}
+select {
+    direction:ltr;
+}

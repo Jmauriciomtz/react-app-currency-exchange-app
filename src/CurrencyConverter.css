@@ -1,0 +1,8 @@
+.amountLabel, .fromLabel, .toLabel {
+    font-size: medium;
+    font-weight: 500;
+}
+.beforeConNum, .beforeConVal, .afterConNum, .afterConVal {
+    font-size: large;
+    font-weight: 500;
+}
