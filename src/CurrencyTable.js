@@ -1,12 +1,14 @@
 import React from 'react';
-import './CurrencyTable.css'
 import currencies from './currencies';
+import { Link } from 'react-router-dom';
+import './CurrencyTable.css'
 
 const CurrencyTable = (props) => {
-    const {base, rates, loading, amount, changeBase, changeAmount} = props;
+    const {base, rates, loading, amount, changeBase, changeAmount } = props;
     if (!rates) {
         return null;
     }
+
     return (
         <div className="row">
             <div className="col-3">
@@ -37,7 +39,8 @@ const CurrencyTable = (props) => {
                         {rates.map(currency =>
                             <tr key={currency.acronym} className="tableBodyRow">
                                 <td>{currency.name} <small>({currency.acronym})</small></td>
-                                <td className="rightCol">{currency.rate.toFixed(6)}</td>
+                                <td className="rightCol"><Link to={`/currencyconverter?base=${base}&quote=${currency.acronym}`}>
+                                    {(amount * currency.rate).toFixed(6)}</Link></td>
                             </tr>
                         )}
                     </tbody>

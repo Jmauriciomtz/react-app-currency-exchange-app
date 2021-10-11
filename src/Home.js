@@ -12,7 +12,6 @@ class Home extends React.Component {
             rates: null,
             loading: true,
         }
-
     }
 
     componentDidMount() {
@@ -25,21 +24,7 @@ class Home extends React.Component {
     }
 
     changeAmount = (event) => {
-        const newAmount = event.target.value;
-        const currentRates = this.state.rates;
-        console.log(newAmount);
-        console.log(currentRates);
-
-        const newRates = currentRates.map(newRate => ({
-            acronym: newRate.acronym,
-            rate: newAmount * newRate.rate,
-            name:currencies[newRate.acronym].name
-        }))
-        console.log(newRates);
-
-
-
-        this.setState({ amount: event.target.value, rates: newRates });
+        this.setState({ amount: event.target.value });
     }
 
     fetchTableData = (base) => {
@@ -64,7 +49,7 @@ class Home extends React.Component {
                 this.setState({ rates: currencyRates, loading: false });
             })
             .catch(response => console.error(response.message));
-        
+
     }
 
     render () {
@@ -73,7 +58,7 @@ class Home extends React.Component {
         return (
             <React.Fragment>
                 <div className="container-fluid">
-                    <CurrencyTable key={base} base={base} changeBase={this.changeBase} amount={amount} changeAmount={this.changeAmount} 
+                    <CurrencyTable key={base} base={base} changeBase={this.changeBase} amount={amount} changeAmount={this.changeAmount}
                         rates={rates} loading={loading} />
                 </div>
             </React.Fragment>
