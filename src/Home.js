@@ -45,7 +45,7 @@ class Home extends React.Component {
                   rate: response.rates[acronym],
                   name: currencies[acronym].name,
                 }))
-      
+
                 this.setState({ rates: currencyRates, loading: false });
             })
             .catch(response => console.error(response.message));

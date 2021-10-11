@@ -12,8 +12,10 @@ class CurrencyConverter extends React.Component {
 
     this.state = {
         baseAcronym: params.get('base'),
+        baseName: '',
         baseAmount: 1,
         quoteAcronym: params.get('quote'),
+        quoteName: '',
         quoteAmount: 0,
         loading: true,
     };
@@ -60,6 +62,15 @@ class CurrencyConverter extends React.Component {
 
         const quoteRate = data.rates[quote];
 
+        for (const [keyCur, valueCur] of Object.entries(currencies)) {
+            if (keyCur === base) {
+                this.setState({ baseName: valueCur.name});
+            }
+            else if (keyCur === quote) {
+                this.setState({ quoteName: valueCur.name});
+            }
+          }
+
         this.setState({
             quoteAmount: quoteRate,
             loading:false,
@@ -69,7 +80,7 @@ class CurrencyConverter extends React.Component {
   }
 
   render() {
-      const { baseAcronym, baseAmount, quoteAcronym, quoteAmount, loading} = this.state;
+      const { baseAcronym, baseAmount,baseName, quoteAcronym, quoteAmount,quoteName, loading} = this.state;
 
     return (
       <React.Fragment>
@@ -95,8 +106,8 @@ class CurrencyConverter extends React.Component {
             </div>
             <div className="row mt-4">
                 <div className="col-6">
-                    <p className="beforeConNum">{baseAmount}<span className="mx-2 beforeConVal">{baseAcronym} =</span></p>
-                    <p className="afterConNum">{(baseAmount * quoteAmount).toFixed(3)}<span className="mx-2 afterConVal">{quoteAcronym}</span></p>
+                    <p className="beforeConNum">{baseAmount}<span className="mx-2 beforeConVal">{baseAcronym}<small> {baseName}</small> =</span></p>
+                    <p className="afterConNum">{(baseAmount * quoteAmount).toFixed(3)}<span className="mx-2 afterConVal">{quoteAcronym}<small> {quoteName}</small></span></p>
                 </div>
             </div>
         </form>
